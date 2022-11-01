@@ -57,7 +57,7 @@ export const Register = ({ setIsAuth }) => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary" onClick={signInWithEmail}>Login</button>
+          <button className="btn btn-primary" onClick={signInWithEmail}>Register</button>
         </div>
         <div className="divider">OR</div>
         <div className='form-control mt-6'><button className='btn btn-primary' onClick={signInWithGoogle}>Login with google</button></div>
