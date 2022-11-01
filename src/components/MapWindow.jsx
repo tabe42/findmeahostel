@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState,useRef } from 'react';
 import Map, {
     Marker,
@@ -11,27 +11,44 @@ import mapboxgl from 'mapbox-gl';
 
 const locations = {'CET':[76.9063,8.5459],'MEC':[76,10.2]}
 
-export const MapWindow = ({resData,lat,lng}) => {
+export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,setCollegeSelected}) => {
     const [showPopup, setShowPopup] = useState(true);
-    const [redirect, setRedirect] = useState([0,0])
+    
+    const [collegeSelected2, setCollegeSelected2] = useState(false)
     const markerClickHandler = (e) => {
         e.target.setPopup(new mapboxgl.Popup().setHTML("<h1>details</h1>"))
     }
     const thisIsMyMap = useRef(null);
-
+    let latlong ;
     const handleClick = (e) => {
-        console.log(e)
-        setRedirect([76.9063,8.5459])
-        console.log(redirect)
+        const handleChange = async () =>{isCollegeSelected = !isCollegeSelected
+        console.log("val set to true" ,isCollegeSelected)
+        latlong = [e.target.value,e.target.id]
+        setCollegeSelected2(!isCollegeSelected)}
+        handleChange().then(()=>{
+            setCollegeSelected(isCollegeSelected)
+            handleFly()
+        })
+        
+    }
+    const handleClick2 = (e) => {
+        isCollegeSelected = !isCollegeSelected
+        console.log("val set to false" ,isCollegeSelected)
+        setCollegeSelected2(!isCollegeSelected)
+        setCollegeSelected2(isCollegeSelected)
+        handleFly()
+        
+    }
+    const handleFly = () => {
         thisIsMyMap.current.flyTo({
-            center: redirect,
+            center: latlong,
             zoom:14,
             essential: true // this animation is considered essential with respect to prefers-reduced-motion
             })
     }
+    useEffect(()=>{setCollegeSelected(!collegeSelected)},[collegeSelected2])
   return (
     <div className='flex'>
-
     <Map
     mapboxAccessToken="pk.eyJ1IjoidG9iYWJlIiwiYSI6ImNsN3BybnhpZjBmYWY0MXM3bGc3Yzd1eGcifQ.p3whIN6-M7IqOJF47PtmZg"
     style={{
@@ -69,9 +86,22 @@ export const MapWindow = ({resData,lat,lng}) => {
 
     <GeolocateControl />
   </Map>
-  <button value={[lat,lng] } className='w-10 h-10 bg-red-700' onClick={handleClick}>MEC</button>
-  <button id='CET' className='w-10 h-10 bg-red-700' onClick={handleClick} >CET</button>
-
+  {
+  collegeSelected?<button id={66} value={-123.9749} className='w-10 h-10 ml-2 bg-red-700 rounded-full' onClick={handleClick2} >Back</button>:
+  
+  
+  
+  <div className='flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll p-8 w-[50vw]'>  
+    <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-full">
+      <div className=" flex flex-row px-2 items-center justify-center text-xl py-4 border-1 text-white font-extrabold shadow-lg mt-4 w-2/3 rounded-md">
+        Choose your College
+      </div>
+    <button id={lat} value={lng} className='w-full h-20 rounded-lg bg-white' onClick={handleClick}>Model Engineering College</button>
+    <button id={8.5459} value={76.9063} className='w-full h-20 rounded-lg bg-white' onClick={handleClick} >CET</button>
+    <button id={8.9142} value={76.6320} className='w-full h-20 rounded-lg bg-white' onClick={handleClick} >TKM</button>
+    </div>
+  </div>
+  }
     </div>
   )
 }

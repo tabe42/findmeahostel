@@ -4,18 +4,19 @@ import { collection } from "firebase/firestore";
 import { db, storage } from "../firebase-config";
 import { ItemBar } from "../components/ItemBar";
 import { deleteObject, ref } from "firebase/storage";
-import { MapWindow } from "../components/MapWindow";
+import { MapWindow} from "../components/MapWindow"
+
 
 export const Products = ({ isAuth }) => {
   const [productList, setProductList] = useState([]);
   const [randstate, setRandstate] = useState(0);
   const [query, setQuery] = useState("");
-  
+  let isCollegeSelected = false
   //map
     const [lat, setLat] = useState(10.028373499551039);
     const [lng, setLng] = useState(76.328516463327);
     const [resData,setResData] = useState([]);
-
+    const [collegeSelected, setCollegeSelected] = useState(isCollegeSelected)
 
   const deleteProduct = async (pid) => {
     const productDoc = doc(db, "products", pid);
@@ -55,7 +56,7 @@ export const Products = ({ isAuth }) => {
     }
     dataHandler()
     getProducts()
-  }, [randstate]);
+  }, [randstate,collegeSelected]);
   
   
   //Search bar
@@ -67,10 +68,14 @@ export const Products = ({ isAuth }) => {
   
   return (
 <div className="flex flex-row justify-center h-screen items-center overflow-clip">
-<div className="position-static flex items-center justify-center m-auto w-1/2">
-  <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng}/>
-</div>
-    <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-1/2">
+{collegeSelected?<div className="position-static flex items-center justify-center">
+  
+  <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected}/>
+</div>:<div className="position-static flex items-center justify-center mt-20">
+  <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected}/>
+</div>}
+  {collegeSelected?
+  <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-2/5">
       <div className=" flex flex-row justify-between px-2 items-center text-xl py-4 border-1 bg-white shadow-lg mt-4 w-2/3 rounded-md">
         <input
           className=" p-1 rounded-md w-full focus:outline-none "
@@ -100,9 +105,12 @@ export const Products = ({ isAuth }) => {
           isAuth={isAuth}
           />
           );
-        })}
+      })}
     </div>
+    :
+    <></>
+    }
 
-        </div>
+    </div>
   );
 };
