@@ -9,6 +9,7 @@ import Map, {
   } from "react-map-gl";
 import mapboxgl from 'mapbox-gl';
 
+
 const locations = {'CET':[76.9063,8.5459],'MEC':[76,10.2]}
 
 export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,setCollegeSelected}) => {
@@ -16,7 +17,7 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
     
     const [collegeSelected2, setCollegeSelected2] = useState(false)
     const markerClickHandler = (e) => {
-        e.target.setPopup(new mapboxgl.Popup().setHTML("<h1>details</h1>"))
+        e.target.setPopup(new mapboxgl.Popup().setHTML("<h1></h1>"))
     }
     const thisIsMyMap = useRef(null);
     let latlong ;
@@ -69,10 +70,14 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
     {resData.map( (item)=>{
         return (
             <>
-    <Marker key={item.hostelId} longitude={item.lon} latitude={item.lat} onClick={markerClickHandler}/>
+    <Marker key={item.hostelId} longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
+    />
     <Popup key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
         onClose={() => setShowPopup(false)}>
-        <h1>{item.lon}</h1>
+        <div className='flex flex-col items-center'>
+          <img className='h-10 w-10' src={item.url}></img>
+          <span className='text-xs font-extrabold'>${item.rent}</span>
+        </div>
     
     
     </Popup>

@@ -123,7 +123,7 @@ function submit(e) {
 
   return (
     <div className="h-auto flex flex-col-reverse md:flex-row items-center justify-center p-4">
-      <FormComponent lat={lat} lng={lng} setLat={setLat} setLng={setLng} data={data} setData={setData} handle={handle} submit={submit}/>
+      {/* <FormComponent lat={lat} lng={lng} setLat={setLat} setLng={setLng} data={data} setData={setData} handle={handle} submit={submit}/> */}
       <div className="m-auto">
         <div className="flex flex-col space-y-4 justify-center   bg-gray-100  shadow-md rounded-md p-8 w-fit h-fit">
           <input
