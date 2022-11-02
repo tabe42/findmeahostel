@@ -30,10 +30,10 @@ export const Landing = () => {
     //   </div>
     // </div>
   <div className="hero min-h-screen bg-base-200">
-    <div className="hero-content text-center">
+    <div className="hero-content text-center pb-36">
       <div className="max-w-md">
         <h1 className="text-5xl font-bold">Hello there</h1>
-        <p className="py-6">Welcome to Find Me A Hostel</p>
+        <p className="text-2xl py-6 ">Welcome to Find Me A Hostel</p>
         <Link to="/register">
           <button className="bg-blue-600 px-4 py-2 text-white self-start rounded-lg hover:bg-blue-500">Click to get started</button>
         </Link>
