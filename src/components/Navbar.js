@@ -31,12 +31,12 @@ export const Navbar = ({isAuth,signUserOut}) => {
               FindMeAHostel
             </Link>
             <div className="flex flex-row md:flex-row md:space-x-10 justify-center items-center">
-              <Link to="/products">Browse</Link>
+              <Link to="/products">Search</Link>
               {!isAuth ? (
                 <Link to="/login">Login</Link>
               ) : (
                 <>
-                  <Link to="/addProduct">Add Product</Link>
+                  <Link to="/addProduct">Add</Link>
                   <button onClick={signUserOut}>Logout</button>
                 </>
               )}

@@ -51,7 +51,7 @@ export const Register = ({ setIsAuth }) => {
           <label className="label text-white">
             <span className="label-text text-white font-bold" >Password</span>
           </label>
-          <input type="text" placeholder="password" onChange={passwordHandler} className="input input-bordered bg-white" />
+          <input type="password" placeholder="password" onChange={passwordHandler} className="input input-bordered bg-white" />
           <label className="label text-white">
             <Link to="/login">Already have an account?</Link>
           </label>
