@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 export const Navbar = ({isAuth,signUserOut}) => {
   return (
 <>
-        <nav className=" sticky top-0">
+        <nav className="sticky top-0 hidden md:flex-none">
           <div className="hidden md:flex flex-col md:flex-row justify-between py-4  px-4 bg-gray-800 text-white text-xl items-center sticky top-0">
             <Link to="/" className="">
               FindMeAHostel

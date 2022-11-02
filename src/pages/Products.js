@@ -11,7 +11,7 @@ export const Products = ({ isAuth }) => {
   const [productList, setProductList] = useState([]);
   const [randstate, setRandstate] = useState(0);
   const [query, setQuery] = useState("");
-  let isCollegeSelected = false
+  let isCollegeSelected = true
   //map
     const [lat, setLat] = useState(10.028373499551039);
     const [lng, setLng] = useState(76.328516463327);
