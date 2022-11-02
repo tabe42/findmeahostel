@@ -181,18 +181,20 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
     <GeolocateControl />
   </Map>
   {
-  collegeSelected?<button id={66} value={-123.9749} className='w-10 h-10 ml-2 bg-red-700 rounded-full' onClick={handleClick2Mobile} >Back</button>:
+  collegeSelected?<button id={66} value={-123.9749} className='w-10 h-10 ml-2 bg-red-700 font-bold rounded-full' onClick={handleClick2Mobile} >Back</button>:
   
   
   
-  <div className='flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll p-8 w-[50vw]'>  
-    <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-full">
-      <div className=" flex flex-row px-2 items-center justify-center text-xl py-4 border-1 text-white font-extrabold shadow-lg mt-4 w-2/3 rounded-md">
+  <div className='flex flex-col space-y-4  items-center mb-4 overflow-y-scroll w-[80vw] h-80'>  
+    <div className="flex flex-row space-y-4  items-center h-screen overflow-y-hidden w-full">
+      <div className=" flex flex-row px-2 items-center justify-center text-xl py-4 border-1 text-white font-extrabold w-1/2 rounded-md">
         Choose your College
       </div>
-    <button id={lat} value={lng} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile}>Model Engineering College</button>
-    <button id={8.5459} value={76.9063} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile} >CET</button>
-    <button id={8.9142} value={76.6320} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile} >TKM</button>
+      <div className='w-1/2 flex flex-col space-y-1.5'>
+        <button id={lat} value={lng} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile}>Model Engineering College</button>
+        <button id={8.5459} value={76.9063} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile} >CET</button>
+        <button id={8.9142} value={76.6320} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile} >TKM</button>
+      </div>
     </div>
   </div>
   }
