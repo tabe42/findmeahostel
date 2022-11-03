@@ -91,7 +91,7 @@ function submit(e) {
         console.log("reached here")
       }).then(()=>{
         console.log("submitting",imageurl,lng)
-        Axios.post("https://backend-findmeahostel.herokuapp.com/tasks/add/", {
+        Axios.post("https://shrouded-plateau-82529.herokuapp.com/https://backend-findmeahostel.herokuapp.com/tasks/add/", {
           lat: lat,
           lon: lng,
           address:address,

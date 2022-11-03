@@ -49,7 +49,7 @@ export const Products = ({ isAuth }) => {
       setProductList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     const dataHandler = async () => {
-      const url = "https://backend-findmeahostel.herokuapp.com/tasks/"
+      const url = "https://shrouded-plateau-82529.herokuapp.com/https://backend-findmeahostel.herokuapp.com/tasks/"
       const response = await fetch(url)
       const data = await response.json()
       setResData(data);
