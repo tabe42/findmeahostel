@@ -91,7 +91,7 @@ function submit(e) {
         console.log("reached here")
       }).then(()=>{
         console.log("submitting",imageurl,lng)
-        Axios.post("http://localhost:8080/hostels/add/", {
+        Axios.post("https://backend-findmeahostel.herokuapp.com/tasks/add/", {
           lat: lat,
           lon: lng,
           address:address,
