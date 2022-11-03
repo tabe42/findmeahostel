@@ -70,7 +70,7 @@ export const Products = ({ isAuth }) => {
   return (
     <>
     <div className="hidden md:flex flex-row justify-center h-screen items-center overflow-clip">
-{collegeSelected?<div className="position-static flex items-center justify-center w-full">
+{collegeSelected?<div className="position-static flex items-center justify-center w-3/5">
   
   <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"70vh"} width={"45vw"}/>
 </div>:<div className="position-static flex items-center justify-center mt-20">
@@ -128,8 +128,8 @@ export const Products = ({ isAuth }) => {
   <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"50vh"} width={"100vw"}/>
 </div>}
   {collegeSelected?
-  <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-2/5">
-      <div className=" flex flex-row justify-between px-2 items-center text-xl py-4 border-1 bg-white shadow-lg mt-4 w-2/3 rounded-md">
+  <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-full ">
+      <div className="fixed flex flex-row justify-between px-2 items-center text-xl py-4 border-1 bg-white shadow-lg mt-4  rounded-md">
         <input
           className=" p-1 rounded-md w-full focus:outline-none "
           placeholder=" search..."

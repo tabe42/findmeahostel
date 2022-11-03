@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 export const Navbar = ({isAuth,signUserOut}) => {
   return (
 <>
-        <nav className="sticky top-0 hidden md:flex-none">
+        <nav className="sticky top-0">
           <div className="hidden md:flex flex-col md:flex-row justify-between py-4  px-4 bg-gray-800 text-white text-xl items-center sticky top-0">
             <Link to="/" className="">
               FindMeAHostel
@@ -31,14 +31,14 @@ export const Navbar = ({isAuth,signUserOut}) => {
               FindMeAHostel
             </Link>
             <div className="flex flex-row md:flex-row md:space-x-10 justify-center items-center">
-              <Link to="/products">Search</Link>
-              {!isAuth ? (
-                <Link to="/login">Login</Link>
+              <Link to="/products"><div className="mr-4">Browse</div></Link>
+              {!isAuth ? (<div className="mr-4">
+                <Link to="/login">Login</Link></div>
               ) : (
-                <>
+                <div className="space-x-4">
                   <Link to="/addProduct">Add</Link>
                   <button onClick={signUserOut}>Logout</button>
-                </>
+                </div>
               )}
             </div>
           </div>
