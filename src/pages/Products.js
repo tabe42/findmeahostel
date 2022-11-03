@@ -129,7 +129,7 @@ export const Products = ({ isAuth }) => {
 </div>}
   {collegeSelected?
   <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-full ">
-      <div className="fixed flex flex-row justify-between px-2 items-center text-xl py-4 border-1 bg-white shadow-lg mt-4  rounded-md">
+      <div className="fixed flex flex-row justify-between px-2 items-center text-xl py-4 border-1 bg-white shadow-lg mt-4 rounded-md">
         <input
           className=" p-1 rounded-md w-full focus:outline-none "
           placeholder=" search..."

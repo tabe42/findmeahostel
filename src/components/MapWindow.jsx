@@ -181,11 +181,11 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
     <GeolocateControl />
   </Map>
   {
-  collegeSelected?<button id={66} value={-123.9749} className='w-10 h-10 ml-2 bg-red-700 font-bold rounded-full' onClick={handleClick2Mobile} >Back</button>:
+  collegeSelected?<button id={66} value={-123.9749} className='w-auto h-10 mt-2 ml-2 text-gray-100 bg-red-700 font-bold rounded-full' onClick={handleClick2Mobile} >Select another college</button>:
   
   
   
-  <div className='flex flex-col space-y-4  items-center mb-4 overflow-y-scroll w-[80vw] h-80'>  
+  <div className='flex flex-col items-center mb-4 overflow-y-scroll w-[80vw] h-80'>  
     <div className="flex flex-row space-y-4  items-center h-screen overflow-y-hidden w-full">
       <div className=" flex flex-row px-2 items-center justify-center text-xl py-4 border-1 text-white font-extrabold w-1/2 rounded-md">
         Choose your College
