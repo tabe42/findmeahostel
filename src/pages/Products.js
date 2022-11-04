@@ -120,15 +120,15 @@ export const Products = ({ isAuth }) => {
 
 
 
-    <div className="flex flex-col  md:hidden justify-center h-screen items-center overflow-clip">
+    <div className="flex flex-col  md:hidden justify-center h-screen items-center overflow-clip [@media(max-width:767px)]:scrollbar-hide">
 {collegeSelected?<div className="position-static flex items-center justify-center">
   
   <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"30vh"} width={"100vw"}/>
-</div>:<div className="position-static flex items-center justify-center mt-20">
+</div>:<div className="position-static flex items-center justify-center -mt-10">
   <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"50vh"} width={"100vw"}/>
 </div>}
   {collegeSelected?
-  <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-full ">
+  <div className="flex flex-col space-y-4  items-center mb-4 mt-2 h-screen overflow-y-scroll w-full">
       <div className="fixed flex flex-row justify-between px-2 items-center text-xl py-4 border-1 bg-white shadow-lg mt-4 rounded-md">
         <input
           className=" p-1 rounded-md w-full focus:outline-none "
@@ -141,13 +141,12 @@ export const Products = ({ isAuth }) => {
           <p className="">&#128269;</p>
         </div>
       </div>
-
       {filteredproductList.map((hostel) => {
         return (
           <ItemBar
           key={hostel.hostelId}
           address={hostel.address}
-          contact={hostel.contact}
+          contact={hostel.phone}
           rent={hostel.rent}
           beds={hostel.bedrooms}
           bath={hostel.baths}
@@ -159,7 +158,7 @@ export const Products = ({ isAuth }) => {
           />
           );
       })}
-    </div>
+      </div>
     :
     <></>
     }

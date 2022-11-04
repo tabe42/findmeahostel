@@ -8,6 +8,7 @@ export const ItemBar = ({
   rent,
   beds,bath,area,
   address,
+  contact
 }) => {
   return (
     <>
@@ -80,13 +81,16 @@ export const ItemBar = ({
   <div className="flex md:hidden w-full lg:max-w-full flex-col">
   <img src={imageurl} className="flex lg:h-auto object-contain lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-white" title="Mountain">
   </img>
-  <div className="py-8 px-8 h-48 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-full flex flex-col">
-      <div className="flex justify-between"><div>House Name</div><div><span className="font-extrabold text-gray-600">${rent}</span><span>/mo</span></div></div>
-      <div className="flex w-56 text-xs"><span>{address}</span></div>
-      <div className="flex justify-between">
+  <div className="py-8 px-8 h-36 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-full flex flex-col">
+      <div className="flex shadow-inner text-gray-800 font-bold rounded-full px-6 py-3 -mt-4 justify-between">
         <div className="flex flex-row items-center">
           <div className="text-xs">
-            Bedrooms  
+          <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                    <path d="M22 11v9h-2v-3H4v3H2V4h2v10h8V7h6a4 4 0 0 1 4 4zm-2 3v-3a2 2 0 0 0-2-2h-4v5h6zM8 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 2a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </g>
+            </svg>  
           </div>
           <div className="ml-1 text-xs">
             {beds}
@@ -95,22 +99,26 @@ export const ItemBar = ({
         <div>|</div>
         <div className="flex flex-row items-center">
           <div className="text-xs">
-            Bathrooms
+          <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10H7V7c0-1.103.897-2 2-2s2 .897 2 2h2c0-2.206-1.794-4-4-4S5 4.794 5 7v3H3a1 1 0 0 0-1 1v2c0 2.606 1.674 4.823 4 5.65V22h2v-3h8v3h2v-3.35c2.326-.827 4-3.044 4-5.65v-2a1 1 0 0 0-1-1zm-1 3c0 2.206-1.794 4-4 4H8c-2.206 0-4-1.794-4-4v-1h16v1z"/></svg>
           </div>
           <div className="ml-1 text-xs">
-            {beds}
+            {bath}
           </div>
         </div>
         <div>|</div>
         <div className="flex flex-row items-center">
           <div className="text-xs">
-            Area  
+          <svg width="24px" height="24px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M29 30l1 90h36V66h26V30H29zm99 0v36h72V30h-72zm108 0v36h72V30h-72zm108 0v36h72V30h-72zm102 0v78h36V30h-36zm-206 80v36h100.543l-118 118H30v218h218V289.457l118-118V272h36V110H240zm206 34v72h36v-72h-36zM30 156v72h36v-72H30zm416 96v72h36v-72h-36zm0 108v72h36v-72h-36zm-166 86v36h72v-36h-72zm108 0v36h72v-36h-72z"/></svg>  
           </div>
           <div className="ml-1 text-xs">
-            {beds}
+            {area}
           </div>
         </div>
       </div>
+      
+      <div className="flex justify-between font-extrabold text-gray-700 py-1"><span> {address}</span></div>
+      <div className="flex justify-between font-normal text-gray-700 items-center"><div>contact:{contact}</div><div className=" flex justify-center bg-primary p-2 px-4 rounded-full text-white -mt-6"><span className="font-extrabold">Rs {rent}</span><span className="font-normal ml-1">/mo</span></div></div>
+      
   </div>
 </div>
 </div>

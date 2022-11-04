@@ -19,6 +19,7 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
         e.target.setPopup(new mapboxgl.Popup().setHTML("<h1></h1>"))
     }
     const thisIsMyMap = useRef(null);
+    const thisIsMyPopup = useRef(null);
     const thisIsMyMapMobile = useRef(null);
     let latlong ;
     const handleClick = (e) => {
@@ -97,10 +98,12 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
     {resData.map( (item)=>{
         return (
             <>
-    <Marker key={item.hostelId} longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
+    <Marker key={item.hostelId}  longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
     />
     <Popup key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
-        onClose={() => setShowPopup(false)}>
+        // onClose={() => setShowPopup(false)}
+        
+        >
         <div className='flex flex-col items-center'>
           <img className='h-10 w-10' src={item.url}></img>
           <span className='text-xs font-extrabold'>${item.rent}</span>
@@ -160,9 +163,12 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
         return (
             <>
     <Marker key={item.hostelId} longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
+        
+
     />
-    <Popup key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
-        onClose={() => setShowPopup(false)}>
+    <Popup ref={thisIsMyPopup} key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
+        onClose={() => setShowPopup(false)}
+        >
         <div className='flex flex-col items-center'>
           <img className='h-10 w-10' src={item.url}></img>
           <span className='text-xs font-extrabold'>${item.rent}</span>
@@ -181,7 +187,7 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
     <GeolocateControl />
   </Map>
   {
-  collegeSelected?<button id={66} value={-123.9749} className='w-auto h-10 mt-2 ml-2 text-gray-100 bg-red-700 font-bold rounded-full' onClick={handleClick2Mobile} >Select another college</button>:
+  collegeSelected?<button id={66} value={-123.9749} className='w-auto z-10 h-10 mt-2 ml-2 text-gray-100 bg-red-700 font-bold rounded-full' onClick={handleClick2Mobile} >Select another college</button>:
   
   
   
