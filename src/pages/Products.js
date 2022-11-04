@@ -120,12 +120,12 @@ export const Products = ({ isAuth }) => {
 
 
 
-    <div className="flex flex-col  md:hidden justify-center h-screen items-center overflow-clip [@media(max-width:767px)]:scrollbar-hide">
+    <div className="flex flex-col  md:hidden justify-center h-screen items-start overflow-clip [@media(max-width:767px)]:scrollbar-hide">
 {collegeSelected?<div className="position-static flex items-center justify-center">
   
   <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"30vh"} width={"100vw"}/>
 </div>:<div className="position-static flex items-center justify-center -mt-10">
-  <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"50vh"} width={"100vw"}/>
+  <MapWindow resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"40vh"} width={"100vw"}/>
 </div>}
   {collegeSelected?
   <div className="flex flex-col space-y-4  items-center mb-4 mt-2 h-screen overflow-y-scroll w-full">
