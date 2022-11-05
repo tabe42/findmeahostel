@@ -8,7 +8,10 @@ export const ItemBar = ({
   rent,
   beds,bath,area,
   address,
-  contact
+  contact,
+  lat,
+  lon,
+  walktime
 }) => {
   return (
     <>
@@ -36,7 +39,7 @@ export const ItemBar = ({
       </div>
       </div> */}
    <div >
-    <div className="hidden w-full lg:max-w-full md:flex ">
+    <div className="hidden w-full lg:max-w-full md:flex max-h-48">
       <img src={imageurl} className=" lg:h-auto object-contain lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-white" title="Mountain">
       </img>
       <div className="py-4 px-4  border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-72 flex flex-col">
@@ -79,6 +82,7 @@ export const ItemBar = ({
 
    
   <div className="flex md:hidden w-full lg:max-w-full flex-col">
+  <div className="z-10 relative translate-y-16 -mt-10 text-xl w-48 justify-center rounded-full m-1 font-bold p-2 bg-primary text-white text-cente shadow-xl">{(walktime/60).toPrecision(2)} minutes away</div>
   <img src={imageurl} className="flex lg:h-auto object-contain lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-white" title="Mountain">
   </img>
   <div className="py-8 px-8 h-36 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-full flex flex-col">

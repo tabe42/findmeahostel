@@ -155,6 +155,7 @@ export const Products = ({ isAuth }) => {
           hostelId={hostel.hostelId}
           deleteProduct={deleteProduct}
           isAuth={isAuth}
+          walktime={hostel.walktime}
           />
           );
       })}
