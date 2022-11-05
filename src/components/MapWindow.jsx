@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useState,useRef } from 'react';
+import { useState,useRef,forwardRef } from 'react';
 import Map, {
     Marker,
     NavigationControl,
@@ -11,16 +11,18 @@ import mapboxgl from 'mapbox-gl';
 
 const locations = {'CET':[76.9063,8.5459],'MEC':[76,10.2]}
 
-export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,setCollegeSelected,height,width}) => {
-    const [showPopup, setShowPopup] = useState(true);
+export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeSelected,setCollegeSelected,height,width},ref) => {
+    
+  
+  const { thisIsMyMap, thisIsMyMapMobile } = ref
+
+   const [showPopup, setShowPopup] = useState(true);
     
     const [collegeSelected2, setCollegeSelected2] = useState(false)
     const markerClickHandler = (e) => {
         e.target.setPopup(new mapboxgl.Popup().setHTML("<h1></h1>"))
     }
-    const thisIsMyMap = useRef(null);
-    const thisIsMyPopup = useRef(null);
-    const thisIsMyMapMobile = useRef(null);
+
     let latlong ;
     const handleClick = (e) => {
         const handleChange = async () =>{isCollegeSelected = !isCollegeSelected
@@ -166,7 +168,7 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
         
 
     />
-    <Popup ref={thisIsMyPopup} key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
+    <Popup  key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
         onClose={() => setShowPopup(false)}
         >
         <div className='flex flex-col items-center'>
@@ -216,3 +218,4 @@ export const MapWindow = ({resData,lat,lng,isCollegeSelected,collegeSelected,set
     </>
   )
 }
+)

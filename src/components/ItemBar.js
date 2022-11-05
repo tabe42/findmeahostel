@@ -1,7 +1,7 @@
 import { deleteDoc, doc } from "firebase/firestore";
-import React from "react";
+import React from "react";    
 import { auth, db } from "../firebase-config";
-
+import { useEffect } from "react";
 export const ItemBar = ({
   imageurl,
   hostelId,
@@ -13,6 +13,7 @@ export const ItemBar = ({
   lon,
   walktime
 }) => {
+
   return (
     <>
     <div >
@@ -39,9 +40,12 @@ export const ItemBar = ({
       </div>
       </div> */}
    <div >
-    <div className="hidden w-full lg:max-w-full md:flex max-h-48">
+    <div className="hidden w-full lg:max-w-full md:flex max-h-48 overflow-clip">
+       <div className="flex flex-col">
+       <div className="z-10 relative translate-y-12 -mt-10 text-xs w-32 justify-center rounded-full m-1 font-normal p-1 bg-primary text-white text-center shadow-xl">{(walktime/60).toPrecision(2)} minutes away</div>
       <img src={imageurl} className=" lg:h-auto object-contain lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-white" title="Mountain">
       </img>
+      </div>
       <div className="py-4 px-4  border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-72 flex flex-col">
           <div className="flex justify-between"><div>House Name</div><div><span className="font-extrabold text-gray-600">${rent}</span><span>/mo</span></div></div>
           <div className="flex w-56 text-xs"><span>{address}</span></div>
