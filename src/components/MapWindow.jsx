@@ -135,7 +135,11 @@ export const MapWindow = forwardRef((
     <Popup key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
         // onClose={() => setShowPopup(false)}
         closeOnClick={false}
-        
+        className="flex"
+        closeButton="false"
+    
+        style={{backgroundColor:'transparent',margin:'0',padding:'0',}}
+
         >
         <div className='flex flex-col items-center rounded-full'>
           <img className='h-12 w-12' src={item.url}></img>
@@ -193,17 +197,22 @@ export const MapWindow = forwardRef((
     {resData.map( (item)=>{
         return (
             <>
-    {/* <Marker key={item.hostelId} longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
+    {/* {/* <Marker key={item.hostelId} longitude={item.lon} latitude={item.lat} onClick={markerClickHandler}  */}
         
 
-    /> */}
-    <Popup  key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
+    {/* /> */}
+    <Popup  key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} offset="25"
         closeOnClick={false}
+        className="flex"
+        anchor="bottom"
+        closeButton="false"
+    
+        style={{backgroundColor:'transparent',margin:'0',padding:'0',}}
 
         >
-        <div className='flex flex-col items-center'>
-          <img className='h-10 w-10' src={item.url}></img>
-          <span className='text-xs font-extrabold'>${item.rent}</span>
+        <div className='flex flex-col items-center bg-transparent -m-8 rounded-full'>
+          <img className='h-12 w-12 rounded-full border-4 border-white' src={item.url}></img>
+          <span className='text-sm font-extrabold bg-white rounded-xl p-1 -mt-2 text-gray-700 z-40'>Rs{item.rent}</span>
         </div>
     
     
@@ -236,7 +245,7 @@ export const MapWindow = forwardRef((
     </div>
   </div>
   }
-    </div>
+</div>
     
     
     
