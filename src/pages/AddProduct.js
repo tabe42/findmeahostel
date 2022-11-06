@@ -152,6 +152,7 @@ const getWalkTime = async () =>{
           /> */}
           <input
             required
+            type="text"
             className="border-2 p-2 rounded-md"
             placeholder="Contact information(phone/email)"
             onChange={(e) => {
