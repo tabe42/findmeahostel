@@ -104,7 +104,7 @@ const getWalkTime = async () =>{
           phone:phone,
           rent:rent,
           url:staticUrl,
-          buildingType:buildingType,
+         
           college:college,
           walktime:walk
         })
