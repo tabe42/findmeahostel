@@ -188,7 +188,7 @@ const getWalkTime = async () =>{
             type="number"
             className="border-2 p-2 rounded-md w-1/2"
             onChange={(e) => {
-              setbuildingType(e.target.value);
+              
             }}
             >
               <option value="" disabled selected>Select building type</option>
