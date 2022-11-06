@@ -22,7 +22,17 @@ const locations = {'CET':[76.9063,8.5459],'MEC':[76,10.2]}
 // }
 
 
-export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeSelected,setCollegeSelected,height,width},ref) => {
+export const MapWindow = forwardRef((
+  {
+  resData,
+  lat,lng,
+  isCollegeSelected,
+  collegeSelected,setCollegeSelected,
+  height,width,
+  setCurrentCollege
+  },
+  
+  ref) => {
     
   
   const { thisIsMyMap, thisIsMyMapMobile } = ref
@@ -38,6 +48,8 @@ export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeS
     const handleClick = (e) => {
         const handleChange = async () =>{isCollegeSelected = !isCollegeSelected
         console.log("val set to true" ,isCollegeSelected)
+        setCurrentCollege(e.target.name)
+        setCurrentCollege(e.target.name)
         latlong = [e.target.value,e.target.id]
         setCollegeSelected2(!isCollegeSelected)}
         handleChange().then(()=>{
@@ -49,6 +61,9 @@ export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeS
     const handleClickMobile = (e) => {
       const handleChange = async () =>{isCollegeSelected = !isCollegeSelected
       console.log("val set to true" ,isCollegeSelected)
+      console.log("inside handleClickMobile",e.target.name)
+      setCurrentCollege(e.target.name)
+      setCurrentCollege(e.target.name)
       latlong = [e.target.value,e.target.id]
       setCollegeSelected2(!isCollegeSelected)}
       handleChange().then(()=>{
@@ -147,9 +162,9 @@ export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeS
       <div className=" flex flex-row px-2 items-center justify-center text-xl py-4 border-1 text-white font-extrabold shadow-lg mt-4 w-2/3 rounded-md">
         Choose your College
       </div>
-    <button id={lat} value={lng} className='w-full h-20 rounded-lg bg-white' onClick={handleClick}>Model Engineering College</button>
-    <button id={8.5459} value={76.9063} className='w-full h-20 rounded-lg bg-white' onClick={handleClick} >CET</button>
-    <button id={8.9142} value={76.6320} className='w-full h-20 rounded-lg bg-white' onClick={handleClick} >TKM</button>
+    <button id={lat} value={lng} name="MEC" className='w-full h-20 rounded-lg bg-white' onClick={handleClick}>Model Engineering College</button>
+    <button id={8.5459} value={76.9063} name="CET" className='w-full h-20 rounded-lg bg-white' onClick={handleClick} >CET</button>
+    <button id={8.9142} value={76.6320} name="TKM" className='w-full h-20 rounded-lg bg-white' onClick={handleClick} >TKM</button>
     </div>
   </div>
   }
@@ -214,9 +229,9 @@ export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeS
         Choose your College
       </div>
       <div className='w-1/2 flex flex-col space-y-1.5'>
-        <button id={lat} value={lng} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile}>Model Engineering College</button>
-        <button id={8.5459} value={76.9063} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile} >CET</button>
-        <button id={8.9142} value={76.6320} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile} >TKM</button>
+        <button name='MEC' id={lat} value={lng} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile}>Model Engineering College</button>
+        <button name='CET' id={8.5459} value={76.9063} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile} >CET</button>
+        <button name='TKM' id={8.9142} value={76.6320} className='w-full h-20 rounded-lg bg-white' onClick={handleClickMobile} >TKM</button>
       </div>
     </div>
   </div>
