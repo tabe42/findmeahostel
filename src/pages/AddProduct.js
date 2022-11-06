@@ -31,7 +31,7 @@ export const AddProduct = ({ isAuth }) => {
   const [phone, setPhone] = useState(0)
   const [college, setCollege] = useState("")
   const [walkingTime, setWalkingTime] = useState(0)
-  const [buildingType, setbuildingType] = useState("")
+  
 
   const productCollectionRef = collection(db, "products");
   let navigate = useNavigate();
