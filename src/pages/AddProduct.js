@@ -48,26 +48,8 @@ const handle = (e) => {
   console.log(newdata);
 };
 let walk=0
-function submit(e) {
-  e.preventDefault();
-  console.log("submitting",lat,lng)
-  Axios.post("http://localhost:8080/hostels/add/", {
-    lat: lat,
-    lon: lng,
-    address:address,
-    bedrooms:bedroom,
-    baths:bath,
-    area:area,
-    phone:phone,
-    rent:rent,
-    url:imageurl,
-    buildingType:buildingType,
-    college:college,
-    walktime:walk
-  })
-    .then((res) => console.log(res.data))
-    .catch((e) => console.log("Error encountered: ", e));
-}
+
+
 
   // const addProduct = async (url, imagename) => {
   //   await addDoc(productCollectionRef, {
@@ -221,7 +203,7 @@ const getWalkTime = async () =>{
           <input
             required
             type="number"
-            placeholder="Beds"
+            placeholder="No of Beds"
             className="border-2 p-2 rounded-md w-1/3"
             onChange={(e) => {
               setBedroom(e.target.value);
@@ -230,7 +212,7 @@ const getWalkTime = async () =>{
           <input
             required
             type="number"
-            placeholder="Baths"
+            placeholder="No of Baths"
             className="border-2 p-2 rounded-md w-1/3"
             onChange={(e) => {
               setBath(e.target.value);

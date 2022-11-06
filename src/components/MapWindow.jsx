@@ -11,6 +11,17 @@ import mapboxgl from 'mapbox-gl';
 
 const locations = {'CET':[76.9063,8.5459],'MEC':[76,10.2]}
 
+// const popupStyle ={
+//   backgroundColor: "#FF0000",
+//   backgroundImage:`url(${hostel.url})`,
+//   backgroundSize: cover,
+//   width: 50,
+//   height: 50,
+//   borderRadius: 50,
+//   cursor: pointer,
+// }
+
+
 export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeSelected,setCollegeSelected,height,width},ref) => {
     
   
@@ -20,7 +31,7 @@ export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeS
     
     const [collegeSelected2, setCollegeSelected2] = useState(false)
     const markerClickHandler = (e) => {
-        e.target.setPopup(new mapboxgl.Popup().setHTML("<h1></h1>"))
+        // e.target.setPopup(new mapboxgl.Popup().setHTML("<h1></h1>"))
     }
 
     let latlong ;
@@ -100,18 +111,21 @@ export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeS
     {resData.map( (item)=>{
         return (
             <>
-    <Marker key={item.hostelId}  longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
-    />
+    {/* <Marker 
+ 
+  key={item.hostelId}  longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
+    >
+
+      </Marker> */}
     <Popup key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
         // onClose={() => setShowPopup(false)}
+        closeOnClick={false}
         
         >
-        <div className='flex flex-col items-center'>
-          <img className='h-10 w-10' src={item.url}></img>
+        <div className='flex flex-col items-center rounded-full'>
+          <img className='h-12 w-12' src={item.url}></img>
           <span className='text-xs font-extrabold'>${item.rent}</span>
         </div>
-    
-    
     </Popup>
     
     </>
@@ -164,12 +178,13 @@ export const MapWindow = forwardRef(({resData,lat,lng,isCollegeSelected,collegeS
     {resData.map( (item)=>{
         return (
             <>
-    <Marker key={item.hostelId} longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
+    {/* <Marker key={item.hostelId} longitude={item.lon} latitude={item.lat} onClick={markerClickHandler} 
         
 
-    />
+    /> */}
     <Popup  key={item.hostelId+123123} longitude={item.lon} latitude={item.lat} anchor="bottom" offset="25"
-        onClose={() => setShowPopup(false)}
+        closeOnClick={false}
+
         >
         <div className='flex flex-col items-center'>
           <img className='h-10 w-10' src={item.url}></img>

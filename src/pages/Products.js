@@ -145,7 +145,7 @@ export const Products = ({ isAuth }) => {
           <p className="">&#128269;</p>
         </div>
       </div>
-      {filteredproductList.map((hostel) => {
+      {(filteredproductList.length==0)?<div className="text-xl text-center">Please wait while server loads up, we are on free tier</div>:filteredproductList.map((hostel) => {
         return (
           <div onClick={()=>{thisIsMyMapMobile.current.flyTo({
             center: [hostel.lon,hostel.lat],
