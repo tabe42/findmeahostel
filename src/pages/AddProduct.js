@@ -16,6 +16,10 @@ export const AddProduct = ({ isAuth }) => {
   const [price, setPrice] = useState("");
 
   
+  const coordinates ={
+  "MEC":"76.328516463327,10.028373499551039",
+  "CET":"76.9063,8.5459",
+  "TKM":"76.6320,8.9142",}
 
   const [imageinput, setImageinput] = useState(null);
   const [imageurl, setImageurl] = useState("https://cdn.dribbble.com/users/989466/screenshots/16168689/media/66899610428d098a4467516591ce01ae.png?compress=1&resize=400x300");
@@ -29,14 +33,15 @@ export const AddProduct = ({ isAuth }) => {
   const [area, setArea] = useState(100);
   const [rent, setRent] = useState(0);
   const [phone, setPhone] = useState("")
-  const [college, setCollege] = useState("")
+  const [college, setCollege] = useState("MEC")
   const [walkingTime, setWalkingTime] = useState(0)
   const [buildingType, setBuildingType] = useState("")
 
   const productCollectionRef = collection(db, "products");
   let navigate = useNavigate();
 
-
+  const test = () =>{console.log("test cords",coordinates[college])}
+ test()
 
 const [data, setData] = useState({
   lat,lng
@@ -65,7 +70,7 @@ let walk=0
   // };
 
 const getWalkTime = async () =>{
-  let url="https://api.mapbox.com/directions-matrix/v1/mapbox/walking/"+lng+","+lat+";"+"76.328516463327"+","+"10.028373499551039"+"?sources=1&annotations=distance,duration&access_token=pk.eyJ1IjoidG9iYWJlIiwiYSI6ImNsN3BybnhpZjBmYWY0MXM3bGc3Yzd1eGcifQ.p3whIN6-M7IqOJF47PtmZg"
+  let url="https://api.mapbox.com/directions-matrix/v1/mapbox/walking/"+coordinates[college]+";"+lng+","+lat+"?sources=1&annotations=distance,duration&access_token=pk.eyJ1IjoidG9iYWJlIiwiYSI6ImNsN3BybnhpZjBmYWY0MXM3bGc3Yzd1eGcifQ.p3whIN6-M7IqOJF47PtmZg"
   console.log("url:",url)
   await Axios.get(url)
   .then(function (response) {
