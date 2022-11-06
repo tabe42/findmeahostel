@@ -28,10 +28,10 @@ export const AddProduct = ({ isAuth }) => {
   const [bath, setBath] = useState(2);
   const [area, setArea] = useState(100);
   const [rent, setRent] = useState(0);
-  const [phone, setPhone] = useState(0)
+  const [phone, setPhone] = useState("")
   const [college, setCollege] = useState("")
   const [walkingTime, setWalkingTime] = useState(0)
-  
+  const [buildingType, setBuildingType] = useState("")
 
   const productCollectionRef = collection(db, "products");
   let navigate = useNavigate();
@@ -104,7 +104,7 @@ const getWalkTime = async () =>{
           phone:phone,
           rent:rent,
           url:staticUrl,
-         
+          buildingType:buildingType,
           college:college,
           walktime:walk
         })
@@ -188,7 +188,7 @@ const getWalkTime = async () =>{
             type="number"
             className="border-2 p-2 rounded-md w-1/2"
             onChange={(e) => {
-              
+              setBuildingType(e.target.value)
             }}
             >
               <option value="" disabled selected>Select building type</option>

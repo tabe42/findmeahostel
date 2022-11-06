@@ -16,7 +16,7 @@ export const ItemBar = ({
 
   return (
     <>
-    <div >
+    <div className="rounded-2xl">
       {/* <img src={imageurl} alt="error" classNameName="h-1/3 md:w-1/3 rounded-md shadow-sm " />
       <div classNameName=" block w-full flex py-4">
       <div classNameName="flex flex-col pl-4 font-medium space-y-2 justify-start w-full block">
@@ -40,16 +40,21 @@ export const ItemBar = ({
       </div>
       </div> */}
    <div >
-    <div className="hidden w-full lg:max-w-full md:flex max-h-48 overflow-clip">
+    <div className="hidden w-full lg:max-w-full md:flex max-h-48 overflow-clip shadow-sm">
        <div className="flex flex-col">
        <div className="z-10 relative translate-y-12 -mt-10 text-xs w-32 justify-center rounded-full m-1 font-normal p-1 bg-primary text-white text-center shadow-xl">{(walktime/60).toPrecision(2)} minutes away</div>
-      <img src={imageurl} className=" lg:h-auto object-contain lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-white" title="Mountain">
+      <img src={imageurl} className=" h-36 shadow-lg object-cover lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-white" title="Mountain">
       </img>
       </div>
-      <div className="py-4 px-4  border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-72 flex flex-col">
-          <div className="flex justify-between"><div>House Name</div><div><span className="font-extrabold text-gray-600">${rent}</span><span>/mo</span></div></div>
-          <div className="flex w-56 text-xs"><span>{address}</span></div>
-          <div className="flex justify-between">
+      <div className="py-4 px-4  border-r text-xs border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-72 flex flex-col">
+          <div className="flex justify-between"><div className="w-30 text-gray-800 font-bold">{address}</div><div className="shadow-inner flex bg-white bg-zinc-700  px-3 py-1 rounded-full text-center text-white items-center justify-center"><span className=" flex font-extrabold  ">${rent}</span><span>/mo</span></div></div>
+          <div className="flex items-center flex-row text-gray-600 text-xs">
+              <svg className="mr-1" width="16px" height="16px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>ionicons-v5-g</title><path d="M22.45 17.35c-0.245 -0.261 -1.109 -1.031 -2.697 -2.051 -1.6 -1.028 -2.78 -1.67 -3.118 -1.819a0.18 0.18 0 0 0 -0.184 0.023c-0.545 0.425 -1.463 1.206 -1.512 1.248 -0.318 0.272 -0.318 0.272 -0.578 0.188 -0.458 -0.15 -1.879 -0.905 -3.117 -2.146s-2.032 -2.698 -2.182 -3.155c-0.086 -0.261 -0.086 -0.261 0.188 -0.578 0.042 -0.049 0.824 -0.967 1.249 -1.512a0.18 0.18 0 0 0 0.023 -0.184c-0.15 -0.339 -0.791 -1.518 -1.819 -3.118 -1.021 -1.588 -1.791 -2.452 -2.051 -2.696A0.183 0.183 0 0 0 6.469 1.509 15.11 15.11 0 0 0 3.844 2.702 15.844 15.844 0 0 0 1.563 4.313a0.18 0.18 0 0 0 -0.059 0.175c0.098 0.457 0.566 2.362 2.019 5.002 1.483 2.694 2.51 4.075 4.688 6.245S11.813 18.994 14.51 20.477c2.64 1.453 4.547 1.922 5.002 2.019a0.181 0.181 0 0 0 0.176 -0.059A15.831 15.831 0 0 0 21.298 20.156a15.127 15.127 0 0 0 1.193 -2.625A0.183 0.183 0 0 0 22.45 17.35Z"/>
+              </svg> 
+            <span>
+              {contact}</span>
+              </div>
+          <div className="flex justify-between shadow-inner px-3 p-1 text-gray-600 rounded-full">
             <div className="flex flex-row items-center">
               <div className="text-xs">
                 Bedrooms  

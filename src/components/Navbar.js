@@ -15,8 +15,8 @@ export const Navbar = ({isAuth,signUserOut}) => {
                 <Link to="/login">Login</Link>
               ) : (
                 <>
-                  <Link to="/addProduct">Add Product</Link>
-                  <Link to="/mylistings">My Listings </Link>
+                  <Link to="/addProduct">Add </Link>
+                  
                   <button onClick={signUserOut}>Logout</button>
                 </>
               )}
