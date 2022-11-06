@@ -141,9 +141,9 @@ export const MapWindow = forwardRef((
         style={{backgroundColor:'transparent',margin:'0',padding:'0',}}
 
         >
-        <div className='flex flex-col items-center rounded-full'>
-          <img className='h-12 w-12' src={item.url}></img>
-          <span className='text-xs font-extrabold'>${item.rent}</span>
+         <div className='flex flex-col items-center bg-transparent -m-8 rounded-full'>
+          <img className='h-12 w-12 rounded-full border-4 border-white' src={item.url}></img>
+          <span className='text-sm font-extrabold bg-white rounded-xl p-1 -mt-2 text-gray-700 z-40'>Rs{item.rent}</span>
         </div>
     </Popup>
     
