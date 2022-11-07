@@ -76,15 +76,15 @@ export const Products = ({ isAuth }) => {
   
   return (
     <>
-    <div className="hidden md:flex flex-row justify-center h-screen items-center overflow-clip">
-{collegeSelected?<div className="position-static flex items-center justify-center w-3/5">
+    <div className="hidden md:flex flex-row justify-center  items-center md:mt-2 overflow-hidden">
+{collegeSelected?<div className="position-static flex items-center mt-12  justify-center w-3/5">
   
   <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:dummy}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"70vh"} width={"45vw"}/>
-</div>:<div className="position-static flex items-center justify-center mt-20">
+</div>:<div className="position-static flex items-center justify-center mt-12 ml-8 ">
   <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:dummy}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"70vh"} width={"45vw"}/>
 </div>}
   {collegeSelected?
-  <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-2/5">
+  <div className="flex flex-col space-y-4 md:mt-0 items-center mb-4 overflow-y-scroll w-2/5">
       <div className=" flex flex-row justify-between px-2 items-center text-xl py-4 border-1 bg-white shadow-lg mt-4 w-2/3 rounded-md">
         <input
           className=" p-1 rounded-md w-full focus:outline-none "
@@ -98,7 +98,8 @@ export const Products = ({ isAuth }) => {
         </div>
       </div>
         <div className="">Tip: Click on cards to navigate</div>
-      {filteredproductList.map((hostel) => {
+        <div className="flex flex-col h-96 space-y-4 overflow-y-scroll">
+      {(filteredproductList.length==0)?<div className="text-xl text-center">Please wait while backend server starts up, we are on free tier</div>:filteredproductList.map((hostel) => {
         return (
           <div onClick={()=>{
             thisIsMyMap.current.flyTo({
@@ -125,7 +126,10 @@ export const Products = ({ isAuth }) => {
           />
           </div>
           );
-      })}
+      })}</div>
+            <div className="text-gray-600 font-light">
+            Scroll down
+            </div>
     </div>
     
     :
@@ -160,9 +164,12 @@ export const Products = ({ isAuth }) => {
           <p className="">&#128269;</p>
         </div>
       </div>
+      
       {(filteredproductList.length==0)?<div className="text-xl text-center">Please wait while server loads up, we are on free tier</div>:filteredproductList.map((hostel) => {
         return (
-          <div onClick={()=>{thisIsMyMapMobile.current.flyTo({
+          <div 
+          className="flex min-w-full"
+          onClick={()=>{thisIsMyMapMobile.current.flyTo({
             center: [hostel.lon,hostel.lat],
             zoom:19,
             essential: true
@@ -187,6 +194,7 @@ export const Products = ({ isAuth }) => {
           </div>
           );
       })}
+
       </div>
     :
     <></>

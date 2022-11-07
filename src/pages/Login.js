@@ -59,18 +59,19 @@ export const Login = ({ setIsAuth }) => {
             <Link to="/register">Create a new account?</Link>
           </label>
         </div>
-        <div className="form-control mt-6">
+        <div className="form-control">
           <button className="btn btn-primary" onClick={signInWithEmail}>Login</button>
         </div>
-        <div className="divider">OR</div>
-        <div className='form-control mt-6'><button className='btn btn-primary' onClick={signInWithGoogle}>Login with google</button></div>
-        <div className="divider">To test the application</div>
+        <div className="divider">OR</div>        
+        <div className="text-center self-center w-72 -mt-4">If you're a recruiter and want to try the app without making an account</div>
         <div className='form-control mt-3'><button className='btn btn-primary' onClick={()=>{
           setIsAuth(true);
           navigate("/products");
         }
-          }>For recruiters</button>
+          }>Access App here</button>
         </div>
+        <div className="divider">OR</div>
+        <div className='form-control mt-6'><button className='btn btn-primary' onClick={signInWithGoogle}>Login with google</button></div>
       </div>
     </div>
   </div>

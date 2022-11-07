@@ -29,7 +29,7 @@ export const MapWindow = forwardRef((
   isCollegeSelected,
   collegeSelected,setCollegeSelected,
   height,width,
-  setCurrentCollege
+  setCurrentCollege,
   },
   
   ref) => {
@@ -157,7 +157,7 @@ export const MapWindow = forwardRef((
     <GeolocateControl />
   </Map>
   {
-  collegeSelected?<button id={66} value={-123.9749} className='w-10 h-10 ml-2 bg-red-700 rounded-full' onClick={handleClick2} >Back</button>:
+  collegeSelected?<button id={66} value={-123.9749} className='w-12 h-12 ml-2 bg-red-700 text-white text-xs rounded-3xl' onClick={handleClick2} >Go back</button>:
   
   
   
@@ -228,7 +228,7 @@ export const MapWindow = forwardRef((
     <GeolocateControl />
   </Map>
   {
-  collegeSelected?<button id={66} value={-123.9749} className='w-auto z-10 h-10 mt-2 ml-2 text-gray-100 bg-red-700 font-bold rounded-full' onClick={handleClick2Mobile} >Select another college</button>:
+  collegeSelected?<button id={66} value={-123.9749} className='w-auto z-10 h-10 mt-2 rounded-xl text-gray-100 bg-red-700 font-bold rounded-xs' onClick={handleClick2Mobile} >Select another college</button>:
   
   
   
