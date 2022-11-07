@@ -33,7 +33,7 @@ export const DraggableMap = ({lat,lng,setLat,setLng}) => {
     mapStyle="mapbox://styles/mapbox/streets-v9"
   >
     <Marker longitude={lng} latitude={lat} draggable='true' onDrag={positionHandler}/>
-
+    <Popup longitude={lng} latitude={lat+0.01}>Drag marker to property location</Popup>
     <NavigationControl position="bottom-right" />
     <FullscreenControl />
 

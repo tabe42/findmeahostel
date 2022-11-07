@@ -261,7 +261,7 @@ const getWalkTime = async () =>{
         </div>
       </div>
       <DraggableMap lat={lat} lng={lng} setLat={setLat} setLng={setLng} />
-      <h3 className="font-bold text-md -my-2 md:hidden">Drag marker to property location</h3>
+      <h3 className="font-bold text-md text-white -my-2 md:hidden">Drag marker to property location</h3>
     </div>
   );
 };
