@@ -72,15 +72,16 @@ export const Products = ({ isAuth }) => {
   //functions from map
   const thisIsMyMap = useRef(null);
   const thisIsMyMapMobile = useRef(null);
+  const dummy= useRef(null);
   
   return (
     <>
     <div className="hidden md:flex flex-row justify-center h-screen items-center overflow-clip">
 {collegeSelected?<div className="position-static flex items-center justify-center w-3/5">
   
-  <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:thisIsMyMapMobile}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"70vh"} width={"45vw"}/>
+  <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:dummy}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"70vh"} width={"45vw"}/>
 </div>:<div className="position-static flex items-center justify-center mt-20">
-  <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:thisIsMyMapMobile}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"70vh"} width={"45vw"}/>
+  <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:dummy}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"70vh"} width={"45vw"}/>
 </div>}
   {collegeSelected?
   <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-2/5">
@@ -96,9 +97,17 @@ export const Products = ({ isAuth }) => {
           <p className="">&#128269;</p>
         </div>
       </div>
-
+        <div className="">Tip: Click on cards to navigate</div>
       {filteredproductList.map((hostel) => {
         return (
+          <div onClick={()=>{
+            thisIsMyMap.current.flyTo({
+              center: [hostel.lon,hostel.lat],
+              zoom:18,
+              essential: true
+            });
+          console.log(thisIsMyMap.current.getZoom());
+          }}>
           <ItemBar
           key={hostel.hostelId}
           address={hostel.address}
@@ -114,9 +123,11 @@ export const Products = ({ isAuth }) => {
           walktime={hostel.walktime}
 
           />
+          </div>
           );
       })}
     </div>
+    
     :
     <></>
     }
@@ -131,9 +142,9 @@ export const Products = ({ isAuth }) => {
     <div className="flex flex-col  md:hidden justify-center h-screen items-start overflow-clip [@media(max-width:767px)]:scrollbar-hide">
 {collegeSelected?<div className="position-static flex items-center justify-center">
   
-  <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:thisIsMyMapMobile}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"30vh"} width={"100vw"}/>
+  <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:dummy,thisIsMyMapMobile:thisIsMyMapMobile}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"30vh"} width={"100vw"}/>
 </div>:<div className="position-static flex items-center justify-center -mt-10">
-  <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:thisIsMyMapMobile}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"40vh"} width={"100vw"}/>
+  <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:dummy,thisIsMyMapMobile:thisIsMyMapMobile}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"40vh"} width={"100vw"}/>
 </div>}
   {collegeSelected?
   <div className="flex flex-col space-y-4  items-center mb-4 mt-2 h-screen overflow-y-scroll w-full">
@@ -155,7 +166,9 @@ export const Products = ({ isAuth }) => {
             center: [hostel.lon,hostel.lat],
             zoom:19,
             essential: true
-          })}}>
+          });
+          
+          }}>
           <ItemBar
           
           key={hostel.hostelId}

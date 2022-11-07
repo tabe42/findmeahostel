@@ -1,9 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import box from "../images/croppedbox.gif";
 import Typed from "react-typed";
 
 export const Landing = () => {
+  
+  const [resData, setResData] = useState([])
+  const startServer = async () => {
+    const url = "https://shrouded-plateau-82529.herokuapp.com/https://backend-findmeahostel.herokuapp.com/tasks/"
+      const response = await fetch(url)
+      const data = await response.json()
+      setResData(data);
+      console.log(data)
+  }
+  
   return (
     // <div className="max-w-[800px] md:h-screen md:mt-[-50px] w-full mx-auto justify-center flex flex-col text-black mt-4">
     //   <div className="flex flex-col items-center md:flex-row md:space-x-10">
@@ -35,7 +45,7 @@ export const Landing = () => {
         <h1 className="text-5xl font-bold">Hello there</h1>
         <p className="text-2xl py-6 ">Welcome to Find Me A Hostel</p>
         <Link to="/register">
-          <button className="bg-blue-600 px-4 py-2 text-white self-start rounded-lg hover:bg-blue-500">Click to get started</button>
+          <button onClick={startServer} className="bg-blue-600 px-4 py-2 text-white self-start rounded-lg hover:bg-blue-500">Click to get started</button>
         </Link>
       </div>
     </div>  

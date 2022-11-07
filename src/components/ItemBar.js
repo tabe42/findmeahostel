@@ -57,7 +57,7 @@ export const ItemBar = ({
           <div className="flex justify-between shadow-inner px-3 p-1 text-gray-600 rounded-full">
             <div className="flex flex-row items-center">
               <div className="text-xs">
-                Bedrooms  
+                Beds  
               </div>
               <div className="ml-1 text-xs">
                 {beds}
@@ -66,10 +66,10 @@ export const ItemBar = ({
             <div>|</div>
             <div className="flex flex-row items-center">
               <div className="text-xs">
-                Bathrooms
+                Baths
               </div>
               <div className="ml-1 text-xs">
-                {beds}
+                {bath}
               </div>
             </div>
             <div>|</div>
@@ -78,7 +78,7 @@ export const ItemBar = ({
                 Area  
               </div>
               <div className="ml-1 text-xs">
-                {beds}
+                {area} sqft
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export const ItemBar = ({
           <svg width="24px" height="24px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M29 30l1 90h36V66h26V30H29zm99 0v36h72V30h-72zm108 0v36h72V30h-72zm108 0v36h72V30h-72zm102 0v78h36V30h-36zm-206 80v36h100.543l-118 118H30v218h218V289.457l118-118V272h36V110H240zm206 34v72h36v-72h-36zM30 156v72h36v-72H30zm416 96v72h36v-72h-36zm0 108v72h36v-72h-36zm-166 86v36h72v-36h-72zm108 0v36h72v-36h-72z"/></svg>  
           </div>
           <div className="ml-1 text-xs">
-            {area}
+            {area} sqft
           </div>
         </div>
       </div>

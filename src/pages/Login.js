@@ -36,7 +36,7 @@ export const Login = ({ setIsAuth }) => {
     console.log(password)
   } 
  return (
-   <div className="flex-1  hero bg-base-200 flex-col">
+   <div className="flex-1  hero  flex-col">
   {/* <Navbar /> */}
   <div className="hero-content flex-col lg:flex-col ">
     <div className="card flex-shrink-0 w-full sm:w-96 max-w-sm shadow-4xl bg-inherit">
@@ -64,6 +64,13 @@ export const Login = ({ setIsAuth }) => {
         </div>
         <div className="divider">OR</div>
         <div className='form-control mt-6'><button className='btn btn-primary' onClick={signInWithGoogle}>Login with google</button></div>
+        <div className="divider">To test the application</div>
+        <div className='form-control mt-3'><button className='btn btn-primary' onClick={()=>{
+          setIsAuth(true);
+          navigate("/products");
+        }
+          }>For recruiters</button>
+        </div>
       </div>
     </div>
   </div>
