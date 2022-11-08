@@ -161,8 +161,8 @@ export const MapWindow = forwardRef((
   
   
   
-  <div className='flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll p-8 w-[50vw]'>  
-    <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen overflow-y-scroll w-full">
+  <div className='flex flex-col space-y-4 mt-4 items-center mb-4 h-screen p-8 w-[50vw]'>  
+    <div className="flex flex-col space-y-4 mt-4 items-center mb-4 h-screen w-full">
       <div className=" flex flex-row px-2 items-center justify-center text-xl py-4 border-1 text-white font-extrabold shadow-lg mt-4 w-2/3 rounded-md">
         Choose your College
       </div>

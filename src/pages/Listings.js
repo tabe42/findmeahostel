@@ -84,7 +84,7 @@ export const Listings = ({ isAuth }) => {
   <MapWindow  setCurrentCollege={setCollege} ref={{thisIsMyMap:thisIsMyMap,thisIsMyMapMobile:dummy}} resData={resData} isAuth={isAuth} lat={lat} lng={lng} collegeSelected={collegeSelected} setCollegeSelected={setCollegeSelected} height={"70vh"} width={"45vw"}/>
 </div>}
   {collegeSelected?
-  <div className="flex flex-col space-y-4 md:mt-0 items-center mb-4 overflow-y-scroll w-2/5">
+  <div className="flex flex-col space-y-4 md:mt-0 items-center mb-4 w-2/5">
       <div className=" flex flex-row justify-between px-2 items-center text-xl py-4 border-1 bg-white shadow-lg mt-4 w-2/3 rounded-md">
         <input
           className=" p-1 rounded-md w-full focus:outline-none "
