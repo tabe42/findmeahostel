@@ -7,7 +7,7 @@ import { deleteObject, ref } from "firebase/storage";
 import { MapWindow} from "../components/MapWindow"
 
 
-export const Products = ({ isAuth }) => {
+export const Listings = ({ isAuth }) => {
   const [productList, setProductList] = useState([]);
   const [randstate, setRandstate] = useState(0);
   const [query, setQuery] = useState("");

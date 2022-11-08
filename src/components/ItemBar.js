@@ -17,28 +17,7 @@ export const ItemBar = ({
   return (
     <>
     <div className="rounded-2xl">
-      {/* <img src={imageurl} alt="error" classNameName="h-1/3 md:w-1/3 rounded-md shadow-sm " />
-      <div classNameName=" block w-full flex py-4">
-      <div classNameName="flex flex-col pl-4 font-medium space-y-2 justify-start w-full block">
-      <div classNameName="flex flex-row w-full justify-between font-bold text-xl ">
-        <p classNameName="">{productname}</p>
-        <p classNameName="font-bold text-lg w-1/5">{price}</p>
-      </div>
-        <p>Seller: {name}</p>
-        <p>Contact: {contact}</p>
-        <p>{description}</p>
-      {isAuth && productsellerid === auth.currentUser.uid && (
-        <button
-          onClick={() => {
-            deleteProduct(id);
-          }}
-          classNameName="bg-white p-2 rounded-md  text-blue-600 hover:bg-gray-200 ml-auto self-end "
-        >
-          Delete
-        </button>
-      )}
-      </div>
-      </div> */}
+
    <div >
     <div className="hidden w-full lg:max-w-full md:flex max-h-48 overflow-clip shadow-sm">
        <div className="flex flex-col">
@@ -90,20 +69,23 @@ export const ItemBar = ({
 
 
    
-  <div className="flex md:hidden w-full lg:max-w-full flex-col">
+  <div className="flex md:hidden min-w-full lg:max-w-full md:-ml-2 flex-col">
   <div className="z-10 relative translate-y-16 -mt-10 text-xl w-48 justify-center rounded-full m-1 font-bold p-2 bg-primary text-white text-cente shadow-xl">{(walktime/60).toPrecision(2)} minutes away</div>
-  <img src={imageurl} className="flex lg:h-auto object-contain lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-white" title="Mountain">
+  <img src={imageurl} className="flex w-screen sm:h-auto object-contain sm:w-48 flex-none bg-cover rounded-t lg:rounded-t-none sm:rounded-l text-center overflow-hidden bg-white" title="Mountain">
   </img>
-  <div className="py-8 px-8 h-36 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-full flex flex-col">
+  <div className="py-4 px-4 h-48  border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-full flex flex-col">
+      <div className="flex justify-between font-bold text-gray-700 text-sm py-1 w-2/3"><span> {address}</span></div>
+      <div className="flex justify-between font-normal text-gray-700 items-center"><div>contact:{contact}</div><div className=" flex justify-center shadow-inner border-2 p-2 px-4 rounded-full text-gray-600 -mt-6"><span className="font-extrabold">Rs {rent}</span><span className="font-normal ml-1">/mo</span></div></div>
       <div className="flex shadow-inner text-gray-800 font-bold rounded-full px-6 py-3 -mt-4 justify-between">
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row  items-center">
           <div className="text-xs">
-          <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            Bedrooms:
+          {/* <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
                 <g>
                     <path fill="none" d="M0 0h24v24H0z"/>
                     <path d="M22 11v9h-2v-3H4v3H2V4h2v10h8V7h6a4 4 0 0 1 4 4zm-2 3v-3a2 2 0 0 0-2-2h-4v5h6zM8 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 2a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                 </g>
-            </svg>  
+            {/* </svg>   */}
           </div>
           <div className="ml-1 text-xs">
             {beds}
@@ -112,7 +94,8 @@ export const ItemBar = ({
         <div>|</div>
         <div className="flex flex-row items-center">
           <div className="text-xs">
-          <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10H7V7c0-1.103.897-2 2-2s2 .897 2 2h2c0-2.206-1.794-4-4-4S5 4.794 5 7v3H3a1 1 0 0 0-1 1v2c0 2.606 1.674 4.823 4 5.65V22h2v-3h8v3h2v-3.35c2.326-.827 4-3.044 4-5.65v-2a1 1 0 0 0-1-1zm-1 3c0 2.206-1.794 4-4 4H8c-2.206 0-4-1.794-4-4v-1h16v1z"/></svg>
+          {/* <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10H7V7c0-1.103.897-2 2-2s2 .897 2 2h2c0-2.206-1.794-4-4-4S5 4.794 5 7v3H3a1 1 0 0 0-1 1v2c0 2.606 1.674 4.823 4 5.65V22h2v-3h8v3h2v-3.35c2.326-.827 4-3.044 4-5.65v-2a1 1 0 0 0-1-1zm-1 3c0 2.206-1.794 4-4 4H8c-2.206 0-4-1.794-4-4v-1h16v1z"/></svg> */}
+          Bathrooms
           </div>
           <div className="ml-1 text-xs">
             {bath}
@@ -129,8 +112,6 @@ export const ItemBar = ({
         </div>
       </div>
       
-      <div className="flex justify-between font-extrabold text-gray-700 py-1"><span> {address}</span></div>
-      <div className="flex justify-between font-normal text-gray-700 items-center"><div>contact:{contact}</div><div className=" flex justify-center bg-primary p-2 px-4 rounded-full text-white -mt-6"><span className="font-extrabold">Rs {rent}</span><span className="font-normal ml-1">/mo</span></div></div>
       
   </div>
 </div>

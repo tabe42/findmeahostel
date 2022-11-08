@@ -2,14 +2,12 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Navbar } from "./components/Navbar"
 import { Landing } from "./pages/Landing";
-import { Products } from "./pages/Products";
-import { AddProduct } from "./pages/AddProduct";
+import { Listings } from "./pages/Listings";
+import { AddProperty } from "./pages/AddProperty";
 import { Login } from "./pages/Login";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
-import { MyProducts } from "./pages/MyProducts";
-import { MyListings } from "./pages/MyListings";
 import {Register} from "./pages/Register"
 import {Mappage} from "./pages/Mappage"
 
@@ -32,11 +30,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/products" element={<Products isAuth={isAuth} />} />
-          <Route path="/addproduct" element={<AddProduct isAuth={isAuth} />} />
+          <Route path="/products" element={<Listings isAuth={isAuth} />} />
+          <Route path="/addproduct" element={<AddProperty isAuth={isAuth} />} />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="/register" element={<Register setIsAuth={setIsAuth} />} />
-          <Route path="/mylistings" element={<MyListings isAuth={isAuth} />} />
           <Route path="/map" element={<Mappage isAuth={isAuth} />} />
         </Routes>
      

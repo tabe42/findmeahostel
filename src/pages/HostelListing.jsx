@@ -7,7 +7,7 @@ export const HostelListing = () => {
     const [lng, setLng] = useState(76.328516463327);
     const [resData,setResData] = useState([]);
     const dataHandler = async () => {
-      const url = "http://localhost:8080/hostels"
+      const url = "https://backend-findmeahostel.herokuapp.com/tasks/"
       const response = await fetch(url)
       const data = await response.json()
       setResData(data);

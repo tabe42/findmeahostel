@@ -9,7 +9,7 @@ import { DraggableMap } from "../components/DraggableMap";
 import { FormComponent } from "../components/FormComponent";
 import Axios from "axios";
 
-export const AddProduct = ({ isAuth }) => {
+export const AddProperty = ({ isAuth }) => {
   const [productname, setProductname] = useState("");
   const [contact, setContact] = useState("");
   const [description, setDescription] = useState("");
@@ -23,7 +23,7 @@ export const AddProduct = ({ isAuth }) => {
 
   const [imageinput, setImageinput] = useState(null);
   const [imageurl, setImageurl] = useState("https://cdn.dribbble.com/users/989466/screenshots/16168689/media/66899610428d098a4467516591ce01ae.png?compress=1&resize=400x300");
-  const [imagename, setImagename] = useState("");
+  const [imagename, setImagename] = useState(""); 
 
   const [lat, setLat] = useState(10.028373499551039);
   const [lng, setLng] = useState(76.328516463327);
@@ -36,6 +36,8 @@ export const AddProduct = ({ isAuth }) => {
   const [college, setCollege] = useState("MEC")
   const [walkingTime, setWalkingTime] = useState(0)
   const [buildingType, setBuildingType] = useState("")
+  
+  const [uploadText, setUploadText] = useState("List Item")
 
   const productCollectionRef = collection(db, "products");
   let navigate = useNavigate();
@@ -115,9 +117,10 @@ const getWalkTime = async () =>{
         })
           .then((res) => {
             console.log(res.data)
+            setUploadText("List Item")
             navigate("/products");
           })
-          .catch((e) => console.log("Error encountered: ", e));
+          .catch((e) => {console.log("Error encountered: ", e);setUploadText("List Item");});
 
       })
 
@@ -129,6 +132,7 @@ const getWalkTime = async () =>{
   useEffect(() => {
     if (!isAuth) {
       navigate("/login");
+
     }
   });
 
@@ -253,10 +257,10 @@ const getWalkTime = async () =>{
             }}
           />
           <button
-            onClick={uploadImage}
-            className=" self-center bg-blue-600 p-2 text-white shadow-md rounded-md"
+            onClick={()=>{uploadImage();setUploadText("Uploading")}}
+            className=" self-center bg-blue-600 p-2 text-white shadow-md  rounded-md"
           >
-            List Item{" "}
+            {uploadText}{" "}
           </button>
         </div>
       </div>
