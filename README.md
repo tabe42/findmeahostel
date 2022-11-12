@@ -1,41 +1,47 @@
 
-# React set up with tailwind
+# Find Me A Hostel
 
-So I can save a few extra seconds which I can then invest in doing nothing
+A web application for students to find hostels,hostels and apartments to rent nearby their colleges.
+
+    
+## Application Architecture
+
+![App Screenshot](https://iili.io/p6BuXj.png)
+
+## API Reference
 
 
 
+#### Get all items
 
-## Set up
-
-
-Clone from git
-```bash
-git clone https://github.com/devan-MEC/ReactV18PlusTailwind.git
+```http
+  GET https://backend-findmeahostel.herokuapp.com/tasks/
 ```
-Change directory into the cloned folder
-```
-cd ReactV18PlusTailwind
-```
-To get npm modules
-```
-npm install
-```
+#### Get an item
 
-## Removing Git Upstreams ( optional )
-To see upstreams
-```
-git remote
+```http
+  GET /https://backend-findmeahostel.herokuapp.com/tasks/${id}
 ```
 
-To remove upstreams
+#### Add item
+```http
+  POST https://backend-findmeahostel.herokuapp.com/tasks/add
 ```
-git remote remove [upstream_name]
+#### Delete item
+
+```http
+  DELETE /https://backend-findmeahostel.herokuapp.com/tasks/${id}
 ```
 
-## Starting the project
-Inside the cloned directory
+
+
+## Installation
+
+Installing findmeahostel
+
+```git
+  npm install --legacy-peer-deps
+  
 ```
-npm run start
-```
-If you see the text 'Hello World!' underlined, you're good to go!
+
+
