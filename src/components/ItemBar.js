@@ -28,14 +28,14 @@ export const ItemBar = ({
       </div>
       <div className="py-4 px-4  border-r text-xs border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4  justify-between leading-normal w-72 flex flex-col">
       
-          <div className="flex justify-between"><div className="w-30 text-gray-800 font-bold">{address}</div><div className="shadow-inner flex bg-white bg-zinc-700  px-3 py-1 rounded-full text-center text-white items-center justify-center"><span className=" flex text-xs font-normal ">
-            <div><Link to='/chatroom'>
+          <div className="flex justify-between"><div className="w-30 text-gray-800 font-bold">{address}</div><Link to='/chatroom'><div className="shadow-inner flex  bg-white bg-zinc-700  px-3 py-3 rounded-full text-center text-white items-center justify-center"><span className=" flex text-xs font-normal ">
+            <div>
             <svg width="12px" height="12px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path fill="none" stroke="#000000" stroke-width="2" d="M5,1 L19,1 L19,1 C21.209139,1 23,2.790861 23,5 L23,13 L23,13 C23,15.209139 21.209139,17 19,17 L7,17 L1,22 L1,5 L1,5 C1,2.790861 2.790861,1 5,1 Z M5,7 L18,7 M5,11 L14,11" transform="matrix(-1 0 0 1 24 0)"/>
+  <path fill="none" stroke="#ffffff" stroke-width="2" d="M5,1 L19,1 L19,1 C21.209139,1 23,2.790861 23,5 L23,13 L23,13 C23,15.209139 21.209139,17 19,17 L7,17 L1,22 L1,5 L1,5 C1,2.790861 2.790861,1 5,1 Z M5,7 L18,7 M5,11 L14,11" transform="matrix(-1 0 0 1 24 0)"/>
 </svg>
               {/* <svg width="12px" height="12px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> */}
-              </Link></div>
-            </span></div></div>
+              </div>
+            </span></div></Link></div>
           <div className="flex items-center flex-row text-gray-600 text-xs">
             <span>
             Rs{rent}</span><span>/mo</span>
