@@ -122,13 +122,13 @@ const ChatRoom = ({username,receivername}) => {
         <div className="chat-box flex  md:grid md:grid-cols-2 md:grid-rows-1  bg-white  m-auto rounded-3xl p-2">
             <div className="member-list flex w-1/2 p-2 text-sm">
                 <ul><li><label className='input-label text-lg'>Chats:</label></li>
-                    <li onClick={()=>{setTab("CHATROOM")}} className={`bg-primary w-32 p-2 my-2 button text-center rounded-xl member ${tab==="CHATROOM" && "active"}`}>Public</li>
+                    <li onClick={()=>{setTab("CHATROOM")}} className={`bg-primary  p-2 my-2 button text-center rounded-xl member ${tab==="CHATROOM" && "active"}`}>Public</li>
                     {[...privateChats.keys()].map((name,index)=>(
-                        <li onClick={()=>{setTab(name)}} className={`bg-primary w-32 text-center p-2 my-2 rounded-xl member ${tab===name && "active"}`} key={index}>{name}</li>
+                        <li onClick={()=>{setTab(name)}} className={`bg-primary  text-center p-2 my-2 rounded-xl member ${tab===name && "active"}`} key={index}>{name}</li>
                     ))}
                 </ul>
             </div>
-            {tab==="CHATROOM" && <div className="chat-content flex flex-col justify-between border-l-2 md:-ml-16 h-96 p-2">
+            {tab==="CHATROOM" && <div className="chat-content flex flex-col justify-between border-l-2 md:-ml-10 h-96 p-2">
                 <ul className="chat-messages flex flex-col text-md w-64">
                     {publicChats.map((chat,index)=>(
                         <li className={`flex flex-row message ${chat.senderName === userData.username && "self"}`} key={index}>
