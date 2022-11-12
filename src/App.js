@@ -10,6 +10,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
 import {Register} from "./pages/Register"
 import {Mappage} from "./pages/Mappage"
+import ChatRoom from "./pages/ChatRoom";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -35,6 +36,7 @@ function App() {
           <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="/register" element={<Register setIsAuth={setIsAuth} />} />
           <Route path="/map" element={<Mappage isAuth={isAuth} />} />
+          <Route path="/chatroom" element={<ChatRoom isAuth={isAuth} />} />
         </Routes>
      
     </BrowserRouter>
