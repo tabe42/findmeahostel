@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from "react";
 import box from "../images/croppedbox.gif";
 import conveyorbox from "../images/conveyor2.gif";
-import { auth, provider } from "../firebase-config";
+import { auth, provider ,yahooProvider} from "../firebase-config";
 import { signInWithPopup,signInWithEmailAndPassword,createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate,Link } from "react-router-dom";
 
@@ -10,6 +10,13 @@ export const Login = ({ setIsAuth }) => {
   let navigate = useNavigate();
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {
+      localStorage.setItem("isAuth", true);
+      setIsAuth(true);
+      navigate("/products");
+    });
+  };
+  const signInWithYahoo = () => {
+    signInWithPopup(auth, yahooProvider).then((result) => {
       localStorage.setItem("isAuth", true);
       setIsAuth(true);
       navigate("/products");
@@ -72,6 +79,7 @@ export const Login = ({ setIsAuth }) => {
         </div>
         <div className="divider">OR</div>
         <div className='form-control mt-6'><button className='btn btn-primary' onClick={signInWithGoogle}>Login with google</button></div>
+        <div className='form-control mt-6'><button className='btn btn-primary' onClick={signInWithYahoo}>Login with Yahoo!</button></div>
       </div>
     </div>
   </div>

@@ -7,7 +7,7 @@ export const Landing = () => {
   
   const [resData, setResData] = useState([])
   const startServer = async () => {
-    const url = "https://shrouded-plateau-82529.herokuapp.com/https://backend-findmeahostel.herokuapp.com/tasks/"
+    const url = "http://13.127.116.174:8080/springbbot-mongo-atlas/tasks/"
       const response = await fetch(url)
       const data = await response.json()
       setResData(data);

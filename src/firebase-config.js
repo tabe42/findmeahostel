@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { getFirestore } from "firebase/firestore";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider,OAuthProvider } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 // Import the functions you need from the SDKs you need
@@ -26,3 +26,4 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app,);
 export const provider = new GoogleAuthProvider();
+export const yahooProvider = new OAuthProvider('yahoo.com');
