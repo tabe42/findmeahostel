@@ -52,7 +52,7 @@ export const Listings = ({ isAuth }) => {
     const dataHandler = async () => {
       // Aws server -> "https://shrouded-plateau-82529.herokuapp.com/http://13.127.116.174:8080/springbbot-mongo-atlas/tasks/"
       
-      const url = "https://shrouded-plateau-82529.herokuapp.com/https://backend-findmeahostel.herokuapp.com/tasks/add/"
+      const url = "https://shrouded-plateau-82529.herokuapp.com/https://backend-findmeahostel.herokuapp.com/tasks/"
       const response = await fetch(url)
       const data = await response.json()
       setResData(data);
