@@ -1,7 +1,7 @@
 
 # NoBroker / Find Me A Hostel
 
-A web application for students to find hostels,hostels and apartments to rent nearby their colleges.
+A web application for students to find hostels, houses and apartments to rent nearby their colleges.
 
     
 ## Application Architecture
